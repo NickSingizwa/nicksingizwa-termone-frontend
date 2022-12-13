@@ -27,8 +27,8 @@ function Calc() {
         console.log("reached")
         if(firstop != "" && secondop != "" && operation != ""){
           axios.post('localhost:5000/api/math',{
-            firstop: firstop,
-            secondop: secondop,
+            operand1: firstop,
+            operand2: secondop,
             operation: operation,
           }).then((res)=>{
             console.log(res.data.data, "my result")

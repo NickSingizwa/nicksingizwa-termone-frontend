@@ -7,9 +7,9 @@ describe('calc', () => {
     cy.get('button[type="submit"]').click()
 
     cy.request('POST', 'localhost:5000/api/math', {
-      firstop: 2,
-      secondop: 4,
-      operator: '*'
+      operand1: 2,
+      operand2: 4,
+      operation: '*'
     }).then((response) => {
       expect(response.data).to.have.property('data', 8)
     })
