@@ -1,8 +1,9 @@
 # nicksingizwa-termone-frontend
 
 Installation:
-git clone https://github.com/JoseMMorales/CaculationTest-React-Jest.git
+git clone https://github.com/NickSingizwa/nicksingizwa-termone-frontend.git
 
+dependencies:
 yarn or npm i
 
 running:
