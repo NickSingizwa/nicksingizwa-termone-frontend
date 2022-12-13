@@ -6,12 +6,12 @@ describe('calc', () => {
     cy.get('input.secondop').type('4')
     cy.get('button[type="submit"]').click()
 
-    cy.request('POST', 'localhost:8080/api/maths', {
+    cy.request('POST', 'localhost:5000/api/math', {
       firstop: 2,
       secondop: 4,
       operator: '*'
     }).then((response) => {
-      expect(response.body).to.have.property('result', 8)
+      expect(response.data).to.have.property('data', 8)
     })
 
     cy.get('div.result').should('contain', '8')

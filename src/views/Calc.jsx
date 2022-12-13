@@ -7,6 +7,7 @@ function Calc() {
     const [firstop,setFirst] = useState("")
     const [secondop,setSecond] = useState("")
     const [operation,setOperation] = useState("+")
+    const [result,setResult] = useState("")
   
     const handleFirstOp= (e) => {
       setFirst(e.target.value)
@@ -25,19 +26,13 @@ function Calc() {
         e.preventDefault();
         console.log("reached")
         if(firstop != "" && secondop != "" && operation != ""){
-          axios.post('localhost:8080/api/maths',{
+          axios.post('localhost:5000/api/math',{
             firstop: firstop,
             secondop: secondop,
             operation: operation,
           }).then((res)=>{
-            console.log(res, "my result")
-            // toast("Request sent",{
-            //   position: "top-right",
-            //   hideProgressBar : true,
-            //   // theme: "dark",
-            //   type: "success",
-            //   closeOnClick: true,
-            // });
+            console.log(res.data.data, "my result")
+            setResult(res.data.data)
           }).catch(err=>console.log(err,"error"))
     
         }else{
@@ -72,7 +67,8 @@ function Calc() {
           <button type="submit" onClick={(e) => submitForm(e)} disabled={firstop == '' || secondop == '' || operation == ''}>See Results</button>
         </form>
       </div>
-        <div className="results"></div>
+        {/* <div className="results">8</div> */}
+        <div className="results">{result}</div>
     </div>
   )
 }
